@@ -96,5 +96,6 @@ Create Table Possessions(
     possessionsListEditedByUser_aws TINYINT,
     possessionsListEditingActivated_aws TINYINT,
     studyPossessions varchar(255),
-    totalVolume_aws varchar(255)
+    totalVolume_aws varchar(255),
+    INDEX (extId_aws)    
 )
