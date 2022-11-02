@@ -1,0 +1,6 @@
+ssh -i /Users/myadmin/.ssh/mysql-performance-test.pem ubuntu@3.120.206.16
+zip -r /Users/myadmin/aws.zip /Users/myadmin/.aws
+scp -i /Users/myadmin/.ssh/mysql-performance-test.pem /User
+scp -i /Users/myadmin/.ssh/mysql-performance-test.pem /Users/myadmin/aws.zip ubuntu@3.120.206.16:/home/ubuntu/
+scp -i /Users/myadmin/.ssh/mysql-performance-test.pem /Users/myadmin/Projects/datentransfert/importRelocations.py ubuntu@3.120.206.16:/home/ubuntu/
+scp -i /Users/myadmin/.ssh/mysql-performance-test.pem /Users/myadmin/Projects/datentransfert/importBids.py ubuntu@3.120.206.16:/home/ubuntu/
