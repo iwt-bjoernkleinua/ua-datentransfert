@@ -83,21 +83,22 @@ Create Table Bids(
 );
 
 Create Table Possessions(
-    extId_aws varchar(255),
-    basementPossessions varchar(255),
-    bathroomPossessions varchar(255),
-    bedroomPossessions varchar(255),
-    boxesPossessions varchar(255),
-    commentsPossessions varchar(255),
-    garagePossessions varchar(255),
-    id_aws varchar(255),
-    kitchenPossessions varchar(255),
-    livingRoomPossessions varchar(255),
-    miscPossessions varchar(255),
-    nurseryPossessions varchar(255),
+    extId_aws varchar(40),
+    basementPossessions varchar(1000),
+    bathroomPossessions varchar(1000),
+    bedroomPossessions varchar(1000),
+    boxesPossessions varchar(1000),
+    commentsPossessions varchar(1000),
+    garagePossessions varchar(1000),
+    id_aws varchar(40),
+    kitchenPossessions varchar(1000),
+    livingRoomPossessions varchar(1000),
+    miscPossessions varchar(1000),
+    nurseryPossessions varchar(1000),
     possessionsListEditedByUser_aws TINYINT,
     possessionsListEditingActivated_aws TINYINT,
-    studyPossessions varchar(255),
-    totalVolume_aws varchar(255),
-    INDEX (extId_aws)    
+    studyPossessions varchar(1000),
+    totalVolume_aws varchar(10),
+    INDEX (id_aws),
+    Primary Key (extId_aws)    
 );
