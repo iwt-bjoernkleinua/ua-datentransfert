@@ -63,7 +63,7 @@ data = dbQueryResponse["Items"]
 
 while "LastEvaluatedKey" in dbQueryResponse:
     dbQueryResponse = bidTable.scan(
-        ExclusiveStartKey=dbQueryResponse["lastEvaluatedKey"]
+        ExclusiveStartKey=dbQueryResponse["LastEvaluatedKey"]
     )
     data += dbQueryResponse["Items"]
 

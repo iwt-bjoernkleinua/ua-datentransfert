@@ -59,9 +59,10 @@ CREATE TABLE Relocations (
     unloadingStaircaseWidth_aws varchar(255),
     unloadingState_aws varchar(255),
     volume_aws varchar(255),
-    INDEX (enabledForAuctionIndex)
+    INDEX (enabledForAuctionIndex),
+    PRIMARY KEY (extId_aws)
 );
-
+    
 
 Create Table Bids(
     account_aws varchar(255),
@@ -77,7 +78,8 @@ Create Table Bids(
     sortOrder_aws varchar(255),
     status_aws varchar(255),
     topRecomendation_aws varchar(255),
-    INDEX (account_aws)
+    INDEX (account_aws),
+    PRIMARY KEY (bidId_aws)
 );
 
 Create Table Possessions(
@@ -98,4 +100,4 @@ Create Table Possessions(
     studyPossessions varchar(255),
     totalVolume_aws varchar(255),
     INDEX (extId_aws)    
-)
+);

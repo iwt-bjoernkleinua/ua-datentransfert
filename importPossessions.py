@@ -56,19 +56,18 @@ dbName = credentials["dbname"]
 dbHost = credentials["host"]
 db = pymysql.connect(host=dbHost, user=dbUserName, passwd=dbPassword, database=dbName)
 cursor = db.cursor()
-sql = "INSERT INTO `Bids` (`extId_aws`,`basementPossessions`,`bathroomPossessions`,`bedroomPossessions`,`boxesPossessions`,`commentsPossessions`,`garagePossessions`,`id_aws`,`kitchenPossessions`,`livingRoomPossessions`,`miscPossessions`,`nurseryPossessions`,`possessionsListEditedByUser_aws`,`possessionsListEditingActivated_aws`,`studyPossessions`,`totalVolume_aws`) Values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+sql = "INSERT INTO `Possessions` (`extId_aws`,`basementPossessions`,`bathroomPossessions`,`bedroomPossessions`,`boxesPossessions`,`commentsPossessions`,`garagePossessions`,`id_aws`,`kitchenPossessions`,`livingRoomPossessions`,`miscPossessions`,`nurseryPossessions`,`possessionsListEditedByUser_aws`,`possessionsListEditingActivated_aws`,`studyPossessions`,`totalVolume_aws`) Values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
 
 dynamodb = boto3.resource("dynamodb", config=my_config)
-possessionTable = dynamodb.Table("ua-possesion-backup")
+possessionTable = dynamodb.Table("ua-possession-backup")
 dbQueryResponse = possessionTable.scan()
 data = dbQueryResponse["Items"]
 
 while "LastEvaluatedKey" in dbQueryResponse:
     dbQueryResponse = possessionTable.scan(
-        ExclusiveStartKey=dbQueryResponse["lastEvaluatedKey"]
+        ExclusiveStartKey=dbQueryResponse["LastEvaluatedKey"]
     )
     data += dbQueryResponse["Items"]
-
 
 
 print("There are {} reccords".format(len(data)))
