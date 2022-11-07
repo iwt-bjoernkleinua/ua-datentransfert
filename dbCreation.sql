@@ -102,3 +102,9 @@ Create Table Possessions(
     INDEX (id_aws),
     Primary Key (extId_aws)    
 );
+
+CREATE TABLE Favorites(
+    accountId varchar(40),
+    relocation varchar(40),
+    INDEX (accountId)
+)
