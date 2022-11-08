@@ -41,6 +41,9 @@ class Bid:
     sortOrder_aws = None
     status_aws = None
     topRecomendation_aws = None
+    startDate_aws = None
+    endDate_aws = None
+    relocationId_aws = None
     
     
 my_config=Config(
@@ -54,7 +57,7 @@ dbName = credentials["dbname"]
 dbHost = credentials["host"]
 db = pymysql.connect(host=dbHost, user=dbUserName, passwd=dbPassword, database=dbName)
 cursor = db.cursor()
-sql = "INSERT INTO `Bids` (`account_aws`,`appointementText_aws`,`bidId_aws`,`bidName_aws`,`bidNumber_aws`,`bidPrice_aws`,`createdDate_aws`,`extId_aws`,`id_aws`,`recomendation_aws`,`sortOrder_aws`,`status_aws`,`topRecomendation_aws`) Values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+sql = "INSERT INTO `Bids` (`account_aws`,`appointementText_aws`,`bidId_aws`,`bidName_aws`,`bidNumber_aws`,`bidPrice_aws`,`createdDate_aws`,`extId_aws`,`id_aws`,`recomendation_aws`,`sortOrder_aws`,`status_aws`,`topRecomendation_aws`, `startDate_aws`, `endDate_aws`, relocationId_aws) Values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s, %s, %s, %s)"
 
 dynamodb = boto3.resource("dynamodb", config=my_config)
 bidTable = dynamodb.Table("ua-bid-backup")
@@ -86,7 +89,20 @@ for item in data:
     bid.sortOrder_aws = item["sortOrder_aws"]
     bid.status_aws = item["status_aws"]
     bid.topRecomendation_aws = item["topRecomendation_aws"]
+    try:
+        bid.startDate_aws = item["startDate_aws"]
+    except:
+        bid.startDate_aws = None
+    try:
+        bid.endDate_aws = item["endDate_aws"]
+    except:
+        bid.endDate_aws = None
+    try:
+        bid.relocationId_aws = item["relocationId_aws"]
+    except:
+        bid.relocationId_aws = None
     
-    result = cursor.execute(sql,(bid.account_aws, bid.appointementText_aws, bid.bidId_aws, bid.bidName_aws, bid.bidNumber_aws, bid.bidPrice_aws, bid.createdDate_aws, bid.extId_aws, bid.id_aws, bid.recomendation_aws, bid.sortOrder_aws, bid.status_aws, bid.topRecomendation_aws))
+    
+    result = cursor.execute(sql,(bid.account_aws, bid.appointementText_aws, bid.bidId_aws, bid.bidName_aws, bid.bidNumber_aws, bid.bidPrice_aws, bid.createdDate_aws, bid.extId_aws, bid.id_aws, bid.recomendation_aws, bid.sortOrder_aws, bid.status_aws, bid.topRecomendation_aws, bid.startDate_aws, bid.endDate_aws, bid.relocationId_aws))
 db.commit()
     

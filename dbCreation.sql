@@ -78,6 +78,9 @@ Create Table Bids(
     sortOrder_aws varchar(255),
     status_aws varchar(255),
     topRecomendation_aws varchar(255),
+    startDate_aws varchar(255),
+    endDate_aws varchar(255),
+    relocationId_aws varchar(255),
     INDEX (account_aws),
     PRIMARY KEY (bidId_aws)
 );
