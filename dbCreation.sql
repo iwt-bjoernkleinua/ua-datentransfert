@@ -81,8 +81,10 @@ Create Table Bids(
     startDate_aws varchar(255),
     endDate_aws varchar(255),
     relocationId_aws varchar(255),
+    incId int auto_increment,
     INDEX (account_aws),
-    PRIMARY KEY (bidId_aws)
+    INDEX(bidId_aws),
+    PRIMARY KEY (incId)
 );
 
 Create Table Possessions(
@@ -111,3 +113,13 @@ CREATE TABLE Favorites(
     relocation varchar(40),
     INDEX (accountId)
 )
+
+
+CREATE TABLE Test(
+    test1 varchar(40),
+    test2 varchar(40),
+    incId int auto_increment,
+    Primary Key (incId)
+);
+
+alter table Test AUTO_INCREMENT=1001;

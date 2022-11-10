@@ -92,5 +92,5 @@ for item in data:
     possession.totalVolume_aws = item["totalVolume_aws"]
     
     
-    result = cursor.execute(sql,(possession.extId_aws,possession.id_aws,possession.basementPossessions,possession.bathroomPossessions,possession.bedroomPossessions,possession.boxesPossessions,possession.commentsPossessions,possession.garagePossessions,possession.kitchenPossessions,possession.livingRoomPossessions,possession.miscPossessions,possession.nurseryPossessions,possession.possessionsListEditedByUser_aws,possession.possessionsListEditingActivated_aws,possession.studyPossessions,possession.totalVolume_aws))
+    result = cursor.execute(sql,(possession.extId_aws,possession.basementPossessions,possession.bathroomPossessions,possession.bedroomPossessions,possession.boxesPossessions,possession.commentsPossessions,possession.garagePossessions,possession.id_aws, possession.kitchenPossessions,possession.livingRoomPossessions,possession.miscPossessions,possession.nurseryPossessions,possession.possessionsListEditedByUser_aws,possession.possessionsListEditingActivated_aws,possession.studyPossessions,possession.totalVolume_aws))
 db.commit()
