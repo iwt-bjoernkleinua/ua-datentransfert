@@ -124,7 +124,7 @@ CREATE TABLE Test(
     Primary Key (incId)
 );
 
-CREATE TABLE Employee(
+CREATE TABLE Employees(
     id_aws varchar(40),
     backOffice INTEGER,
     email_aws varchar(255),
