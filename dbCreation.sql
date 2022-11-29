@@ -24,7 +24,9 @@ CREATE TABLE Relocations (
     loadingStaircaseWidth_aws varchar(255),
     loadingState_aws varchar(255),
     loadingVolume_aws varchar(255),
-    lowestOffer varchar(255),
+    lowestOffer varchar(15),
+    averageOffer varchar(15),
+    numberOfBids varchar(10),
     mountingComment_aws varchar(255),
     mounting_aws varchar(255),
     numOfBids_aws varchar(255),
@@ -112,7 +114,7 @@ CREATE TABLE Favorites(
     accountId varchar(40),
     relocation varchar(40),
     INDEX (accountId)
-)
+);
 
 
 CREATE TABLE Test(
@@ -121,5 +123,19 @@ CREATE TABLE Test(
     incId int auto_increment,
     Primary Key (incId)
 );
+
+CREATE TABLE Employee(
+    id_aws varchar(40),
+    backOffice INTEGER,
+    email_aws varchar(255),
+    mobilePhone_aws varchar(255),
+    name_aws varchar(255),
+    phone_aws varchar(255),
+    photo_aws varchar(255),
+    position varchar(100),
+    salutation_aws varchar(20),
+    Primary Key(id_aws)
+
+)
 
 alter table Test AUTO_INCREMENT=1001;
