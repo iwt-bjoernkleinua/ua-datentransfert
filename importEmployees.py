@@ -43,18 +43,27 @@ my_config=Config(
     region_name="eu-central-1"
 )
 
-credentials = getDbUserNameAndPassword()
-dbUserName = credentials["username"]
-dbPassword = credentials["password"]
-dbName = credentials["dbname"]
-dbHost = credentials["host"]
+
+#If DB ortal already Deployed
+#credentials = getDbUserNameAndPassword()
+#dbUserName = credentials["username"]
+#dbPassword = credentials["password"]
+#dbName = credentials["dbname"]
+#dbHost = credentials["host"]
+#ELSE
+dbUserName = "admin"
+dbPassword = "awEpv9a7lMm80HyuruDUx5G3k0FUIEI1"
+dbName = "portal"
+dbHost = "ua-portal-rds.cirizaze883z.eu-central-1.rds.amazonaws.com"
+
+
 db = pymysql.connect(host=dbHost, user=dbUserName, passwd=dbPassword, database=dbName)
 cursor = db.cursor()
 sql = """REPLACE INTO Employees (id_aws, backOffice, email_aws, mobilePhone_aws, name_aws, phone_aws, photo_aws, position, salutation_aws)
         VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)"""
 
 dynamodb = boto3.resource("dynamodb", config=my_config)
-employeeTable = dynamodb.Table("ua-employee-backup")
+employeeTable = dynamodb.Table("ua-employee")
 dbQueryResponse = employeeTable.scan()
 data = dbQueryResponse["Items"]
 
