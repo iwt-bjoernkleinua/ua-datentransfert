@@ -141,7 +141,7 @@ CREATE TABLE Employees(
 CREATE TABLE Accounts(
     id_aws varchar(40),
     companyName_aws varchar(128),
-    invoiceAdress_aws varchar(128),
+    invoiceAddress_aws varchar(128),
     transportedVolume_aws INTEGER,
     drivenDistanceInKm_aws INTEGER,
     partnerSince_aws varchar(30),
