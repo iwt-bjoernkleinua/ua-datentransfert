@@ -92,6 +92,9 @@ class Relocation:
     unloadingState_aws = None
     volume_aws = None
 
+
+print("HALLO")
+
 my_config=Config(
     region_name="eu-central-1"
 )
@@ -99,13 +102,17 @@ my_config=Config(
 
 
 dynamodb = boto3.resource("dynamodb", config=my_config)
-relocationTable = dynamodb.Table("ua-relocation-backup")
+print("Noch da")
+relocationTable = dynamodb.Table("ua-relocation")
+print("immer noch da")
 dbQueryResponse = relocationTable.query(
         IndexName="enabledForAuctionIndex",
         KeyConditionExpression=Key("enabledForAuctionIndex").eq("True")
     )
+print("und immer noch")
 data = dbQueryResponse["Items"]
 credentials = getDbUserNameAndPassword()
+print("Crdentials are {}".format(credentials))
 dbUserName = credentials["username"]
 dbPassword = credentials["password"]
 dbName = credentials["dbname"]
